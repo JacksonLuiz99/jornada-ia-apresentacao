@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>git log --author=jackson --stat</title>
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("jornada-ia-theme") === "light")
+            document.documentElement.setAttribute("data-theme", "light");
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="rail">
+      <div class="rail-line"></div>
+      <div class="rail-fill" id="railFill"></div>
+      <div class="rail-dots" id="railDots"></div>
+    </div>
+    <div class="hud" id="hud">commit <span class="n">01</span>/16</div>
+    <button
+      class="theme-toggle"
+      id="themeToggle"
+      type="button"
+      aria-label="Alternar tema (rosa/claro)"
+    >
+      <span class="track"><span class="knob"></span></span>
+      <span id="themeLabel">rosa</span>
+    </button>
+
+    <main>
+      <section id="hero">
+        <div class="inner">
+          <div class="hero-kicker">
+            $ git log --author="jackson" --graph --all
+          </div>
+          <div class="hero-title">
+            Minha jornada com
+            <span class="accent">IA</span> no<br />desenvolvimento
+          </div>
+          <div class="hero-sub">
+            Do copiar-e-colar no ChatGPT ao desenvolvimento orientado por
+            especificação. Uma história contada como uma sequência de commits —
+            com os erros e os aprendizados.
+          </div>
+          <div class="hero-scroll">
+            <span class="arrow">↓</span> role para começar o log
+          </div>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">a1f0c2</span>
+            <span class="type">feat(fluxo)</span>: era do copiar-e-colar
+          </div>
+          <h1 class="reveal">
+            A base: <span class="dim">ChatGPT</span> clássico
+          </h1>
+          <p class="lede reveal">
+            Tudo começou de um jeito bem manual:
+            <strong
+              >copiar código, colar no editor, voltar pra tirar dúvida, copiar o
+              erro do console, colar de novo</strong
+            >. Duas janelas separadas — o navegador com o chat, e a IDE — sem
+            nenhuma integração entre elas.
+          </p>
+          <p class="lede reveal">
+            Nesse período também usava a extensão <strong>Amazon Q</strong>, que
+            já trazia IA integrada direto na IDE uma prévia do que viria depois
+            com o Antigravity. E quando o ChatGPT não me convencia numa dúvida
+            específica, eu recorria ao <strong>Gemini</strong> como segunda
+            opinião, pra validar ou contestar a resposta.
+          </p>
+          <p class="lede reveal">
+            Não era elegante, mas foi essa base que me ensinou a "conversar" com
+            uma IA sobre código pela primeira vez.
+          </p>
+          <div class="chips">
+            <span class="chip reveal">navegador + IDE separados</span>
+            <span class="chip reveal">copy / paste manual</span>
+            <span class="chip reveal">debug por console</span>
+            <span class="chip amber reveal">Amazon Q (extensão)</span>
+            <span class="chip reveal">Gemini como segunda opinião</span>
+          </div>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">b3d81e</span>
+            <span class="type">feat(ide)</span>: IA passa a viver dentro do
+            editor
+          </div>
+          <h1 class="reveal">
+            Antigravity — a IA entra na <span class="hl">IDE</span>
+          </h1>
+          <p class="lede reveal">
+            O salto seguinte foi o <strong>Antigravity</strong>: a IA deixou de
+            ser uma aba separada e passou a viver dentro do próprio editor. Usei
+            por um bom tempo e nesse intervalo, o mercado inteiro acelerou: o
+            Codex chegando forte no VS Code, e o Cursor já existindo
+            <strong>e eu simplesmente ainda não sabia da existência dele</strong
+            >.
+          </p>
+          <div class="chips">
+            <span class="chip amber reveal">IA integrada ao editor</span>
+            <span class="chip reveal">mercado em ebulição</span>
+          </div>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">c7a29f</span>
+            <span class="type">refactor(stack)</span>: migra pra vscode + claude
+          </div>
+          <h1 class="reveal">
+            A virada pro <span class="hl2">VS Code</span> +
+            <span class="hl2">Claude</span>
+          </h1>
+          <p class="lede reveal">
+            Troquei de IDE para usar o VS Code, com o Claude como IA de
+            desenvolvimento. Sendo honesto:
+            <strong>a princípio não gostei muito</strong> — os tokens acabavam
+            rápido demais para o meu ritmo.
+          </p>
+          <p class="lede reveal">
+            Por um tempo, conciliei os dois: Antigravity de um lado, Claude do
+            outro, usando cada um onde rendia mais. Foi um período de ajuste até
+            eu me aperfeiçoar de verdade no uso do Claude.
+          </p>
+          <div class="banner info reveal">
+            <span class="lbl">Aprendizado</span>Nem toda ferramenta nova rende
+            no primeiro contato — o ganho apareceu com repetição e ajuste de
+            fluxo, não de imediato.
+          </div>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">d92e4b</span>
+            <span class="type">feat(metodologia)</span>!: adota spec-driven
+            development
+          </div>
+          <h1 class="reveal">A virada de chave: <span class="hl">SDD</span></h1>
+          <p class="lede reveal">
+            O Álvaro, dev <strong>Mito</strong> do time, farmou
+            <strong>Aura</strong> quando apresentou pra gente o
+            <strong>SDD — Spec-Driven Development</strong>. Isso foi
+            revolucionário: em vez de pedidos soltos, passamos a ter
+            <strong>regras e especificações claras</strong> guiando cada tarefa.
+          </p>
+          <p class="lede reveal">
+            Antes disso, o máximo que eu tinha era um "rules" simples no
+            Antigravity — coisas como não usar mais <code>*ngIf</code>/<code
+              >*ngFor</code
+            >
+            (preferindo <code>@if</code>/<code>@for</code>) e convenções de
+            nomenclatura. Começamos na v1 e, com algumas atualizações corrigindo
+            pequenos erros, o fluxo foi amadurecendo bastante. Ele tem 7 etapas
+            — é o que eu vou detalhar agora.
+          </p>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">d0f1a3</span>
+            <span class="type">docs(readme)</span>: visão geral do fluxo
+          </div>
+          <h1 class="reveal">
+            Visão geral: <span class="hl">um fluxo estruturado</span>
+          </h1>
+          <p class="lede reveal">
+            Antes de entrar etapa por etapa, o mapa completo do pipeline SDD —
+            da primeira leitura do projeto até o commit.
+          </p>
+          <div class="pipeline">
+            <div class="pipe-step reveal">
+              <div class="pipe-num">1</div>
+              <div>
+                <div class="pipe-title">
+                  /init — entendimento do projeto/ versionamento
+                </div>
+                <div class="pipe-desc">
+                  A IA indexa o projeto, a arquitetura e os padrões antes de
+                  qualquer tarefa.
+                </div>
+              </div>
+            </div>
+            <div class="pipe-step reveal">
+              <div class="pipe-num">2</div>
+              <div>
+                <div class="pipe-title">Análise da tarefa</div>
+                <div class="pipe-desc">
+                  Diálogo técnico: endpoints, regras de negócio, componentes
+                  existentes, impacto e comportamento esperado.
+                </div>
+              </div>
+            </div>
+            <div class="pipe-step reveal">
+              <div class="pipe-num">3</div>
+              <div>
+                <div class="pipe-title">/sdd — geração da spec</div>
+                <div class="pipe-desc">
+                  Contrato técnico revisado por mim antes de qualquer código.
+                  Portão 1: aprovar a spec.
+                </div>
+              </div>
+            </div>
+            <div class="pipe-step reveal">
+              <div class="pipe-num">4</div>
+              <div>
+                <div class="pipe-title">/gerar-tasks + /implementar-tasks</div>
+                <div class="pipe-desc">
+                  Spec vira tasks (dev-lead), tasks viram código
+                  (dev-pleno/dev-senior). Portão 2: revisar as tasks.
+                </div>
+              </div>
+            </div>
+            <div class="pipe-step reveal">
+              <div class="pipe-num">5</div>
+              <div>
+                <div class="pipe-title">Revisão e ajustes</div>
+                <div class="pipe-desc">
+                  Validação visual, testes funcionais e vibe coding — a IA
+                  acelera, eu valido.
+                </div>
+              </div>
+            </div>
+            <div class="pipe-step reveal">
+              <div class="pipe-num">6</div>
+              <div>
+                <div class="pipe-title">Testes automatizados</div>
+                <div class="pipe-desc">
+                  Unitários (<code>ng test --watch=false</code>) e E2E via
+                  Playwright MCP.
+                </div>
+              </div>
+            </div>
+            <div class="pipe-step reveal">
+              <div class="pipe-num">7</div>
+              <div>
+                <div class="pipe-title">Commit</div>
+                <div class="pipe-desc">
+                  Só quando eu peço — nunca sozinho, nunca com assinatura de IA.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">e04a19</span>
+            <span class="type">chore(init)</span>: etapa 1 — entendimento do
+            projeto
+          </div>
+          <h1 class="reveal">Antes de tudo: <span class="dim">/init</span></h1>
+          <p class="lede reveal">
+            Antes de escrever qualquer código, o primeiro passo é fazer a IA
+            <strong>entender completamente o projeto</strong> com o comando
+            <code>/init</code>. Isso reduz respostas inconsistentes e alinha o
+            contexto desde o início.
+          </p>
+          <ul class="loglist">
+            <li class="reveal"><strong>Indexar</strong> o projeto inteiro</li>
+            <li class="reveal">
+              Compreender toda a <strong>arquitetura</strong>
+            </li>
+            <li class="reveal">
+              Entender os <strong>padrões</strong> já utilizados
+            </li>
+            <li class="reveal">
+              Conhecer a <strong>estrutura de pastas</strong>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">e15f7c</span>
+            <span class="type">feat(analise)</span>: etapa 2 — análise da tarefa
+          </div>
+          <h1 class="reveal">
+            Passo 2 — <span class="dim">entender antes de especificar</span>
+          </h1>
+          <p class="lede reveal">
+            A tarefa chega de dois jeitos: surge durante o desenvolvimento, ou
+            vem pronta dos analistas. Se está bem descrita, eu simplesmente
+            copio e colo. Se não, faço o trabalho manual: explico o cenário pra
+            IA e peço pra ela analisar o <strong>Swagger do backend</strong>,
+            entendendo endpoints, regras de negócio, componentes existentes e o
+            impacto real da alteração — um diálogo técnico completo, antes de
+            qualquer linha de código.
+          </p>
+          <div class="chips">
+            <span class="chip reveal">endpoints</span>
+            <span class="chip reveal">regras de negócio</span>
+            <span class="chip reveal">componentes existentes</span>
+            <span class="chip reveal">impacto da alteração</span>
+            <span class="chip amber reveal">comportamento esperado</span>
+          </div>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">f38a01</span>
+            <span class="type">docs(spec)</span>: etapa 3 — geração da spec
+          </div>
+          <h1 class="reveal">
+            Passo 3 — a <span class="hl2">especificação</span>
+          </h1>
+          <p class="lede reveal">
+            Rodo <code>/sdd &lt;ideia&gt;</code>, que assume — direto no chat
+            principal, sem subagente — a persona
+            <strong>pm-spec-architect</strong> (PM/Arquiteto, Fase 1 do SDD) e
+            carrega a skill <code>write-specs</code>. É proposital não ser um
+            subagente: a inquisição socrática precisa de conversa de verdade
+            comigo, então roda no chat principal. Ele
+            <strong>me questiona sempre que tem dúvida</strong> — lista
+            premissas e riscos, e só depois de eu confirmar é que redige a
+            especificação formal.
+          </p>
+          <p class="lede reveal">
+            Eu leio com calma, ajusto o que for preciso, e
+            <strong>só aprovo</strong> quando estiver de acordo. Nesse ponto o
+            status muda de <code>rascunho</code> para <code>aprovada</code>, e o
+            próximo comando já é sugerido: <code>/gerar-tasks</code>.
+          </p>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">017cd4</span>
+            <span class="type">feat(tasks)</span>: etapa 4 — planejamento e
+            implementação
+          </div>
+          <h1 class="reveal">
+            Passo 4 — <span class="hl">tasks</span> e
+            <span class="hl">implementação</span>
+          </h1>
+          <p class="lede reveal">
+            Com a spec aprovada, rodo <code>/gerar-tasks</code>, que delega ao
+            agente <strong>dev-lead</strong>: ele decompõe tudo em tasks
+            executáveis com escopo bem definido, cada uma classificada por nível
+            — <strong>Pleno</strong> (executa um padrão já existente) ou
+            <strong>Sênior</strong> (define padrão novo) — respeitando a
+            arquitetura já existente, sem extrapolar o escopo da tarefa.
+          </p>
+          <p class="lede reveal">
+            Num exemplo real: <strong>2 tasks Sênior sequenciais</strong>,
+            seguidas de <strong>3 tasks Pleno em paralelo</strong>, por tocarem
+            arquivos totalmente disjuntos. Aprovadas as tasks, aponto
+            <code>/implementar-tasks</code> (ou
+            <code>/implementar-tasks-v2</code>, dependendo do projeto) pra pasta
+            aprovada — e o próprio fluxo decide, task a task, se despacha pro
+            agente <strong>dev-pleno</strong> ou <strong>dev-senior</strong>, às
+            vezes disparando várias ao mesmo tempo. É uma abordagem mais
+            arriscada do que a de alguns colegas, que preferem ir tarefa por
+            tarefa.
+          </p>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">6dc410</span> <span class="type">test(qa)</span>:
+            etapa 5 — revisão e ajustes
+          </div>
+          <h1 class="reveal">
+            Passo 5 — <span class="dim">a IA acelera, eu valido</span>
+          </h1>
+          <p class="lede reveal">
+            Depois de implementado, faço uma avaliação visual e testo na mão.
+            Hoje, com as atualizações recentes, o próprio
+            <strong>Claude sobe um servidor local</strong> e
+            <strong>testa nativamente no navegador</strong> — gerando até
+            imagens de teste quando precisa, via <code>claude-in-chrome</code>.
+          </p>
+          <p class="lede reveal">
+            No meio do caminho tem uma boa dose de <strong>vibe coding</strong>:
+            pequenos ajustes iterativos, no olho, até o resultado bater com o
+            que eu tinha em mente — sem burocracia de reabrir a spec pra cada
+            detalhe visual.
+          </p>
+          <div class="chips">
+            <span class="chip reveal">validação visual</span>
+            <span class="chip reveal">testes funcionais</span>
+            <span class="chip amber reveal">vibe coding</span>
+            <span class="chip reveal">refinamento de UI</span>
+          </div>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">7ef825</span>
+            <span class="type">test(e2e)</span>: etapa 6 — testes automatizados
+          </div>
+          <h1 class="reveal">
+            Passo 6 — <span class="dim">duas camadas de teste</span>
+          </h1>
+          <p class="lede reveal">
+            Uso <strong>testes unitários</strong> (<code
+              >ng test --watch=false</code
+            >) e, quando o fluxo pede algo mais completo,
+            <strong>Playwright MCP</strong> — testes E2E navegando pela
+            aplicação com múltiplos perfis de usuário. É bem mais rápido de
+            configurar do que fazer na mão, mas percebo que consome mais tokens.
+          </p>
+          <div class="banner info reveal">
+            <span class="lbl">Exemplo real</span>
+            No <strong>SIGEP</strong>, o fluxo automatizado percorre múltiplos
+            perfis de usuário numa cadeia só: Gestor de Projetos → NAE → Área
+            Técnica → NAE → Diretoria Geral → NAE.
+          </div>
+          <p class="lede reveal">
+            Regra fixa do gate <code>npm run check</code> (lint + testes +
+            build): nada é dado como pronto com o gate vermelho. simplificando
+            ele é <code>npm run lint + npm run test:ci + npm run build</code>, e
+            só passa se tudo estiver verde. Se não, volta pro passo 5.
+          </p>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">8901b6</span>
+            <span class="type">chore(git)</span>: etapa 7 — commit seguro
+          </div>
+          <h1 class="reveal">
+            Passo 7 — <span class="dim">o</span> <span class="hl2">commit</span>
+          </h1>
+          <p class="lede reveal">
+            Os commits são escritos pelo próprio Claude — mas
+            <strong>só quando eu peço</strong>. Tenho uma regra fixa
+            (<code>git-workflow</code>) configurada pra isso: nunca commitar sem
+            permissão explícita, nunca criar branch sozinho, nunca dar push
+            sozinho. Essas três ações eu sempre faço na mão.
+          </p>
+          <p class="lede reveal">
+            A mesma regra cuida da mensagem: objetiva, focada no
+            <strong>porquê</strong> da mudança (não numa lista do que foi tocado
+            — isso o diff já mostra), e <strong>sem assinatura de IA</strong> —
+            nenhum <code>Co-Authored-By: Claude</code> no rodapé. O commit é
+            meu, ponto.
+          </p>
+          <p class="lede reveal">
+            Para tarefas bem simples, às vezes uso até o gerador de mensagem de
+            commit nativo do próprio VS Code.
+          </p>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">9a12c7</span>
+            <span class="type">chore(deps)</span>: remove google stitch, adota
+            pjc-kit
+          </div>
+          <h1 class="reveal">
+            O que
+            <span
+              class="dim"
+              style="
+                text-decoration: line-through;
+                text-decoration-color: var(--err);
+              "
+              >deixei de usar</span
+            >
+          </h1>
+          <p class="lede reveal">
+            Testei o <strong>Google Stitch</strong> pra geração de layout,
+            depois de ver uma apresentação de um colega (Everton). No começo
+            funcionou bem — mas com as atualizações mais recentes, ele passou a
+            "confundir" o que eu pedia.
+          </p>
+          <ul class="loglist">
+            <li class="reveal">
+              Pedia ajuste simples numa tabela, ele devolvia uma tela inteira
+              nova
+            </li>
+            <li class="reveal">
+              Insistia em padrões fixos — <strong>dashboard, navbar</strong> —
+              mesmo sem eu pedir
+            </li>
+            <li class="reveal">
+              Mesmo explicando de novo, entregava o que
+              <strong>ele</strong> queria, não o que eu pedi
+            </li>
+          </ul>
+          <div class="banner fix reveal">
+            <span class="lbl">O que substituiu</span>Nesse meio-tempo surgiu o
+            nosso <strong>PJC Kit</strong>, que passou a padronizar as telas do
+            sistema. Deixamos de precisar pensar e reinventar a aparência a cada
+            tela nova — e ganhamos tempo real com isso.
+          </div>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">ab34e2</span>
+            <span class="type">fix(pipeline)</span>: dificuldades com CI/CD
+          </div>
+          <h1 class="reveal">
+            Nem tudo é <span class="dim">caminho feliz</span>
+          </h1>
+          <p class="lede reveal">
+            Onde percebi que a IA é bem ruim de serviço é sobre
+            <strong>CI/CD e pipeline</strong>. A IA ainda parece ter uma curva
+            de aprendizado baixa nesse tipo de tarefa: encontro um problema,
+            peço ajuda, e ela começa a discutir hipóteses — "faz isso", "tenta
+            aquilo" — sem sempre convergir numa <strong>conclusão boa</strong>.
+          </p>
+        </div>
+      </section>
+
+      <section data-slide>
+        <div class="inner">
+          <div class="eyebrow reveal">
+            <span class="hash">cd67a0</span>
+            <span class="type">fix(security)</span>: achado da IA — credencial
+            em base64 no CI
+          </div>
+          <h1 class="reveal">
+            Achado da IA — <span class="dim">esse a IA achou</span>
+          </h1>
+          <p class="lede reveal">
+            Depois de uma
+            <strong>reunião interna sobre falhas de segurança</strong>, pedi pra
+            IA revisar nosso pipeline com esse foco específico. Foi ela que
+            encontrou, sozinha, que o nosso <code>.gitlab-ci.yml</code> passava
+            uma credencial em <strong>base64</strong> direto no arquivo —
+            <code>VHJvbGVp</code> — expondo usuário e senha de acesso ao Nexus
+            pra qualquer um com acesso ao repositório.
+          </p>
+          <div class="banner info reveal">
+            <span class="lbl">Quem encontrou</span>
+            A IA, não eu — numa varredura de segurança que pedi logo depois da
+            reunião sobre falhas desse tipo.
+          </div>
+          <div class="banner reveal">
+            <span class="lbl">O que aconteceu</span>
+            O <code>.gitlab-ci.yml</code> guardava a credencial de acesso ao
+            Nexus em base64 (<code>VHJvbGVp</code>) diretamente no arquivo,
+            versionado — base64 não é criptografia, é só codificação, então a
+            credencial estava na prática exposta a quem lesse o repositório.
+          </div>
+          <div class="banner fix reveal">
+            <span class="lbl">O que corrigimos</span>
+            Substituímos o valor fixo pela variável de ambiente
+            <code>$NEXUS_PASS</code>, tirando a credencial do arquivo
+            versionado.
+          </div>
+        </div>
+      </section>
+
+      <section id="closing">
+        <div class="inner">
+          <div class="closing-quote reveal">
+            <em>Errar hoje, aprender hoje,</em><br />
+            para errar amanhã de novo,<br />
+            e aprender de novo —<br />
+            <em>Seja hoje melhor do que ontem numa hora dessas.</em>
+          </div>
+          <div class="continue-wrap" id="continueWord">
+            <span class="type-hidden" id="cw"></span
+            ><span class="cursor" id="cwCursor"></span>
+          </div>
+          <div class="closing-foot reveal">— Jackson</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>fim do log — obrigado</footer>
+
+    <script>
+      // ---- theme toggle ----
+      const themeToggle = document.getElementById("themeToggle");
+      const themeLabel = document.getElementById("themeLabel");
+      function currentTheme() {
+        return document.documentElement.getAttribute("data-theme") === "light"
+          ? "light"
+          : "pink";
+      }
+      function syncThemeLabel() {
+        themeLabel.textContent = currentTheme() === "light" ? "claro" : "rosa";
+      }
+      syncThemeLabel();
+      themeToggle.addEventListener("click", () => {
+        const next = currentTheme() === "light" ? "pink" : "light";
+        document.documentElement.setAttribute("data-theme", next);
+        try {
+          localStorage.setItem("jornada-ia-theme", next);
+        } catch (e) {}
+        syncThemeLabel();
+      });
+
+      // ---- reveal-on-scroll ----
+      const revealEls = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              const el = e.target;
+              const siblings = [
+                ...el.parentElement.querySelectorAll(".reveal"),
+              ];
+              const localIdx = siblings.indexOf(el);
+              setTimeout(() => el.classList.add("in"), localIdx * 90);
+              io.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
+      );
+      revealEls.forEach((el) => io.observe(el));
+
+      // ---- git rail ----
+      const hud = document.getElementById("hud");
+      const railDots = document.getElementById("railDots");
+      const railFill = document.getElementById("railFill");
+      const dotSections = [
+        document.getElementById("hero"),
+        ...document.querySelectorAll("[data-slide]"),
+        document.getElementById("closing"),
+      ];
+      const totalCommits = dotSections.length - 2; // exclude hero + closing from the "commit NN/total" count baseline
+      dotSections.forEach((sec) => {
+        const dot = document.createElement("div");
+        dot.className = "rail-dot";
+        dot.addEventListener("click", () =>
+          sec.scrollIntoView({ behavior: "smooth" }),
+        );
+        railDots.appendChild(dot);
+      });
+      const allDots = railDots.querySelectorAll(".rail-dot");
+
+      function updateRail() {
+        const scrollY = window.scrollY;
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = Math.min(100, Math.max(0, (scrollY / docH) * 100));
+        railFill.style.height = pct + "%";
+        let activeIdx = 0;
+        dotSections.forEach((sec, i) => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.5) activeIdx = i;
+        });
+        allDots.forEach((d, i) => {
+          d.classList.toggle("active", i === activeIdx);
+          d.classList.toggle("passed", i < activeIdx);
+        });
+        const commitNum = Math.max(
+          1,
+          Math.min(dotSections.length - 1, activeIdx),
+        );
+        hud.innerHTML =
+          'commit <span class="n">' +
+          String(commitNum).padStart(2, "0") +
+          "</span>/" +
+          (dotSections.length - 1);
+      }
+      window.addEventListener("scroll", updateRail, { passive: true });
+      updateRail();
+
+      // ---- closing word typing animation ----
+      const closingSection = document.getElementById("closing");
+      let typed = false;
+      const typeIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting && !typed) {
+              typed = true;
+              const cw = document.getElementById("cw");
+              const full = [
+                { t: "Conti", cls: "c1" },
+                { t: ";", cls: "semi" },
+                { t: "nue", cls: "c2" },
+                { t: "...", cls: "dots" },
+              ];
+              let str = "";
+              full.forEach((p) => {
+                for (const ch of p.t)
+                  str += `<span class="${p.cls}" style="opacity:0">${ch}</span>`;
+              });
+              cw.innerHTML = str;
+              cw.classList.remove("type-hidden");
+              const chars = cw.querySelectorAll("span");
+              chars.forEach((c, i) => {
+                setTimeout(() => {
+                  c.style.transition = "opacity .05s";
+                  c.style.opacity = 1;
+                }, i * 95);
+              });
+            }
+          });
+        },
+        { threshold: 0.5 },
+      );
+      typeIO.observe(closingSection);
+    </script>
+  </body>
+</html>
