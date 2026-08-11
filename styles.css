@@ -192,6 +192,9 @@ body::before {
   font-size: 10.5px;
   color: var(--ink-faint);
 }
+:root[data-theme="light"] .pride-badge {
+  display: none;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -767,6 +770,33 @@ h1 .hl2 {
   color: var(--ink-faint);
   opacity: 0;
   transform: translateY(10px);
+}
+.closing-repo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 26px;
+  padding: 9px 18px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+.closing-repo:hover,
+.closing-repo:focus-visible {
+  border-color: var(--violet);
+  color: var(--ink);
+}
+.closing-repo .hash {
+  color: var(--violet);
+  font-weight: 700;
 }
 
 .reveal {
