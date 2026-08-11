@@ -25,7 +25,7 @@
       <div class="rail-fill" id="railFill"></div>
       <div class="rail-dots" id="railDots"></div>
     </div>
-    <div class="hud" id="hud">commit <span class="n">01</span>/16</div>
+    <div class="hud" id="hud">commit <span class="n">01</span>/17</div>
     <button
       class="theme-toggle"
       id="themeToggle"
@@ -585,6 +585,117 @@
         </div>
       </section>
 
+      <section data-slide>
+        <div class="inner inner-wide">
+          <div class="eyebrow reveal">
+            <span class="hash">ef91b4</span>
+            <span class="type">docs(evidencias)</span>: provas diretas do uso
+            de IA
+          </div>
+          <h1 class="reveal">
+            Evidências — <span class="dim">isso não é encenação</span>
+          </h1>
+          <p class="lede reveal">
+            Os prints abaixo são o pipeline SDD real, capturado do começo ao
+            fim numa correção de verdade — do <code>init</code> ao commit.
+            Clique em qualquer print pra ampliar.
+          </p>
+          <div class="evidence-grid">
+            <button
+              class="evidence-item reveal"
+              type="button"
+              data-full="assets/01-init.png"
+              data-caption="1 · Init — abrindo o pipeline SDD real"
+            >
+              <img src="assets/01-init.png" alt="Init — abrindo o pipeline SDD real" loading="lazy" />
+              <span class="evidence-caption">1 · Init</span>
+            </button>
+            <button
+              class="evidence-item reveal"
+              type="button"
+              data-full="assets/02-pedido-analise-backend.png"
+              data-caption="2 · Pedido de análise ao backend"
+            >
+              <img src="assets/02-pedido-analise-backend.png" alt="Pedido de análise ao backend" loading="lazy" />
+              <span class="evidence-caption">2 · Pedido de análise</span>
+            </button>
+            <button
+              class="evidence-item reveal"
+              type="button"
+              data-full="assets/03-achados-analise.png"
+              data-caption="3 · Achados na análise"
+            >
+              <img src="assets/03-achados-analise.png" alt="Achados na análise" loading="lazy" />
+              <span class="evidence-caption">3 · Achados na análise</span>
+            </button>
+            <button
+              class="evidence-item reveal"
+              type="button"
+              data-full="assets/04-gerar-spec-sdd.png"
+              data-caption="4 · Gerando a spec (Fase 1 — /sdd)"
+            >
+              <img src="assets/04-gerar-spec-sdd.png" alt="Gerando a spec via /sdd" loading="lazy" />
+              <span class="evidence-caption">4 · Gerar spec (/sdd)</span>
+            </button>
+            <button
+              class="evidence-item reveal"
+              type="button"
+              data-full="assets/05-gerar-tasks.png"
+              data-caption="5 · Gerar tasks (Fase 2)"
+            >
+              <img src="assets/05-gerar-tasks.png" alt="Gerar tasks" loading="lazy" />
+              <span class="evidence-caption">5 · Gerar tasks</span>
+            </button>
+            <button
+              class="evidence-item reveal"
+              type="button"
+              data-full="assets/06-aprovado-tasks-implementar.png"
+              data-caption="6 · Tasks aprovadas, pronto pra implementar"
+            >
+              <img src="assets/06-aprovado-tasks-implementar.png" alt="Tasks aprovadas, pronto pra implementar" loading="lazy" />
+              <span class="evidence-caption">6 · Tasks aprovadas</span>
+            </button>
+            <button
+              class="evidence-item reveal"
+              type="button"
+              data-full="assets/07-tasks-implementadas-inicio-testes.png"
+              data-caption="7 · Tasks implementadas, início dos testes"
+            >
+              <img src="assets/07-tasks-implementadas-inicio-testes.png" alt="Tasks implementadas, início dos testes" loading="lazy" />
+              <span class="evidence-caption">7 · Início dos testes</span>
+            </button>
+            <button
+              class="evidence-item reveal"
+              type="button"
+              data-full="assets/08-teste-automatizado.png"
+              data-caption="8 · Teste automatizado"
+            >
+              <img src="assets/08-teste-automatizado.png" alt="Teste automatizado" loading="lazy" />
+              <span class="evidence-caption">8 · Teste automatizado</span>
+            </button>
+            <button
+              class="evidence-item reveal"
+              type="button"
+              data-full="assets/09-commit-feliz.png"
+              data-caption="9 · Commit feliz"
+            >
+              <img src="assets/09-commit-feliz.png" alt="Commit feliz" loading="lazy" />
+              <span class="evidence-caption">9 · Commit feliz</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Fechar">✕</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Anterior">‹</button>
+        <figure class="lightbox-figure">
+          <img id="lightboxImg" src="" alt="" />
+          <figcaption id="lightboxCaption"></figcaption>
+        </figure>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Próximo">›</button>
+      </div>
+
       <section id="closing">
         <div class="inner">
           <div class="closing-quote reveal">
@@ -645,6 +756,46 @@
         { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
       );
       revealEls.forEach((el) => io.observe(el));
+
+      // ---- evidence lightbox ----
+      const evidenceItems = [...document.querySelectorAll(".evidence-item")];
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const lightboxCaption = document.getElementById("lightboxCaption");
+      let lightboxIdx = 0;
+
+      function openLightbox(idx) {
+        lightboxIdx = (idx + evidenceItems.length) % evidenceItems.length;
+        const item = evidenceItems[lightboxIdx];
+        lightboxImg.src = item.dataset.full;
+        lightboxImg.alt = item.dataset.caption;
+        lightboxCaption.textContent = item.dataset.caption;
+        lightbox.classList.add("open");
+      }
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+      }
+      evidenceItems.forEach((item, idx) => {
+        item.addEventListener("click", () => openLightbox(idx));
+      });
+      document
+        .getElementById("lightboxClose")
+        .addEventListener("click", closeLightbox);
+      document
+        .getElementById("lightboxPrev")
+        .addEventListener("click", () => openLightbox(lightboxIdx - 1));
+      document
+        .getElementById("lightboxNext")
+        .addEventListener("click", () => openLightbox(lightboxIdx + 1));
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      window.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") openLightbox(lightboxIdx - 1);
+        if (e.key === "ArrowRight") openLightbox(lightboxIdx + 1);
+      });
 
       // ---- git rail ----
       const hud = document.getElementById("hud");
