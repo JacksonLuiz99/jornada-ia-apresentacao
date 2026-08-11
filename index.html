@@ -26,15 +26,26 @@
       <div class="rail-dots" id="railDots"></div>
     </div>
     <div class="hud" id="hud">commit <span class="n">01</span>/17</div>
-    <button
-      class="theme-toggle"
-      id="themeToggle"
-      type="button"
-      aria-label="Alternar tema (rosa/claro)"
-    >
-      <span class="track"><span class="knob"></span></span>
-      <span id="themeLabel">rosa</span>
-    </button>
+    <div class="topbar-left">
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Alternar tema (rosa/claro)"
+      >
+        <span class="track"><span class="knob"></span></span>
+        <span id="themeLabel">rosa</span>
+      </button>
+      <span
+        class="pride-badge"
+        tabindex="0"
+        title="Relaxa, é só o nome da paleta de cores — não é um comunicado 😄"
+      >
+        <span class="flag" aria-hidden="true">🏳️‍🌈</span
+        ><span class="q" aria-hidden="true">?</span>
+        <span class="sr-only">O tema se chama "rosa" por causa da cor, sem relação com a bandeira</span>
+      </span>
+    </div>
 
     <main>
       <section id="hero">
@@ -816,6 +827,7 @@
         railDots.appendChild(dot);
       });
       const allDots = railDots.querySelectorAll(".rail-dot");
+      let currentActiveIdx = 0;
 
       function updateRail() {
         const scrollY = window.scrollY;
@@ -827,6 +839,7 @@
           const rect = sec.getBoundingClientRect();
           if (rect.top < window.innerHeight * 0.5) activeIdx = i;
         });
+        currentActiveIdx = activeIdx;
         allDots.forEach((d, i) => {
           d.classList.toggle("active", i === activeIdx);
           d.classList.toggle("passed", i < activeIdx);
@@ -843,6 +856,20 @@
       }
       window.addEventListener("scroll", updateRail, { passive: true });
       updateRail();
+
+      // ---- keyboard slide navigation (seta muda de slide; ignorado com o lightbox aberto) ----
+      window.addEventListener("keydown", (e) => {
+        if (lightbox.classList.contains("open")) return;
+        if (e.key === "ArrowDown" || e.key === "ArrowRight" || e.key === "PageDown") {
+          e.preventDefault();
+          const next = dotSections[Math.min(dotSections.length - 1, currentActiveIdx + 1)];
+          next.scrollIntoView({ behavior: "smooth" });
+        } else if (e.key === "ArrowUp" || e.key === "ArrowLeft" || e.key === "PageUp") {
+          e.preventDefault();
+          const prev = dotSections[Math.max(0, currentActiveIdx - 1)];
+          prev.scrollIntoView({ behavior: "smooth" });
+        }
+      });
 
       // ---- closing word typing animation ----
       const closingSection = document.getElementById("closing");
